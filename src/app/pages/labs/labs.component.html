@@ -2,7 +2,7 @@
   <h1>Hola mi primer proyecto</h1>
   <h2>{{ welcome }}</h2>
   <ul>
-    <li *ngFor="let task of tasks">
+    <li *ngFor="let task of tasks()">
       {{ task }}
     </li>
   </ul>
@@ -31,4 +31,11 @@
   <input type="text" [value]="name()" (change)="changeHandler($event)">
   <p>name: {{ name() }}</p>
   <p>name: {{ name() }}</p>
+  <hr />
+  <ul>
+    <p>total: {{ tasks().length }}</p>
+    <li *ngFor="let task of tasks(); index as i">
+      {{ i }}  {{ task }}
+    </li>
+  </ul>
 </div>

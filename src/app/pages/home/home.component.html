@@ -17,13 +17,17 @@
       <!-- This section should be hidden by default and shown when there are todos -->
       <section class="main">
         <ul class="todo-list">
-          <li *ngFor="let task of tasks(); index as i">
+          <li
+            (dblclick)="updateTaskEditingMode(i)"
+            *ngFor="let task of tasks(); index as i"
+            [class.editing]="task.editing"
+            [class.completed]="task.completed">
             <div class="view">
               <input (change)="updateTask(i)" class="toggle" type="checkbox" [checked]="task.completed" />
               <label>{{ task.title }}</label>
               <button class="destroy" (click)="deleteTask(i)"></button>
             </div>
-            <input class="edit" value="Buy a unicorn" />
+            <input class="edit" (keydown.enter)="updateTaskText(i, $event)" [value]="task.title" />
           </li>
           <!--
           <li class="completed">

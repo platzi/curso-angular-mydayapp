@@ -19,7 +19,7 @@
         <ul class="todo-list">
           <li
             (dblclick)="updateTaskEditingMode(i)"
-            *ngFor="let task of tasks(); index as i"
+            *ngFor="let task of tasksByFilter(); index as i"
             [class.editing]="task.editing"
             [class.completed]="task.completed">
             <div class="view">
@@ -68,13 +68,13 @@
         <!-- Remove this if you don't implement routing -->
         <ul class="filters">
           <li>
-            <a routerLink="/" class="selected">All</a>
+            <a (click)="changeFilter('all')" class="selected">All</a>
           </li>
           <li>
-            <a routerLink="/pending">Pending</a>
+            <a (click)="changeFilter('pending')">Pending</a>
           </li>
           <li>
-            <a routerLink="/completed">Completed</a>
+            <a (click)="changeFilter('completed')">Completed</a>
           </li>
         </ul>
         <!-- Hidden if no completed items are left ↓ -->

@@ -48,7 +48,6 @@ export class HomeComponent {
   trackTasks() {
     effect(() => {
       const tasks = this.tasks();
-      console.log(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }, { injector: this.injector });
   }

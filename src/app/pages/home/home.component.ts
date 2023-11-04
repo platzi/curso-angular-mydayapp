@@ -70,15 +70,12 @@ export class HomeComponent {
     }
     this.tasks.update(prevState => [...prevState, newTask]);
   }
-
+  
   deleteTask(index: number) {
-    this.tasks.mutate(state => {
-      state.splice(index, 1);
-    })
+    this.tasks.update((tasks) => tasks.filter((task, position) => position !== index));
   }
 
   updateTask(index: number) {
-    /*
     this.tasks.update(prevState => {
       return prevState.map((task, position) => {
         if (position === index) {
@@ -90,7 +87,6 @@ export class HomeComponent {
         return task;
       })
     });
-    */
   }
 
   updateTaskEditingMode(index: number) {
@@ -130,3 +126,6 @@ export class HomeComponent {
     this.filter.set(filter);
   }
 }
+
+
+

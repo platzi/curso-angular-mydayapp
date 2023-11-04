@@ -91,13 +91,6 @@ export class HomeComponent {
       })
     });
     */
-    this.tasks.mutate(state => {
-      const currentTask = state[index];
-      state[index] = {
-        ...currentTask,
-        completed: !currentTask.completed
-      }
-    })
   }
 
   updateTaskEditingMode(index: number) {

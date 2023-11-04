@@ -14,11 +14,16 @@
     </header>
     <div class="container todoapp-wrapper">
       <!-- This section should be hidden by default and shown when there are todos -->
+      <pre>
+        <code>
+          {{ tasks() | json }}
+        </code>
+      </pre>
       <section class="main">
         <ul class="todo-list">
           <li *ngFor="let task of tasks(); index as i">
             <div class="view">
-              <input class="toggle" type="checkbox" />
+              <input class="toggle" type="checkbox" [checked]="task.completed" (change)="updateTask(i)" />
               <label>{{ task.title }}</label>
               <button class="destroy" (click)="deleteTask(i)"></button>
             </div>
@@ -55,7 +60,7 @@
       <!-- This footer should be hidden by default and shown when there are todos -->
       <footer class="footer">
         <!-- This should be `0 items left` by default -->
-        <span class="todo-count"><strong>0</strong> item left</span>
+        <span class="todo-count"><strong>{{ tasks().length }}</strong> items</span>
         <!-- Remove this if you don't implement routing -->
         <ul class="filters">
           <li>

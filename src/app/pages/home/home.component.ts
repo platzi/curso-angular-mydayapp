@@ -15,7 +15,7 @@ export class HomeComponent {
     {
       id: Date.now(),
       title: 'Crear proyecto',
-      completed: false
+      completed: true
     },
     {
       id: Date.now(),
@@ -41,5 +41,19 @@ export class HomeComponent {
 
   deleteTask(index: number) {
     this.tasks.update((tasks) => tasks.filter((task, position) => position !== index));
+  }
+
+  updateTask(index: number) {
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            completed: !task.completed
+          }
+        }
+        return task;
+      })
+    })
   }
 }

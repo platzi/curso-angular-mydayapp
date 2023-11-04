@@ -28,8 +28,9 @@
   <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()">
   <hr />
   <ul>
+    <p>total: {{ tasks().length }}</p>
     <li *ngFor="let task of tasks(); index as i">
-      {{i}} {{ task }}
+      {{ i }} {{ task }}
     </li>
   </ul>
   <h1>Signals</h1>

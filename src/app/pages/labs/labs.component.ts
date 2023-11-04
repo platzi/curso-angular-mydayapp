@@ -14,7 +14,7 @@ export class LabsComponent {
     'Instalar Angular CLI',
     'Crear proyecto',
     'Crear componente',
-    'Crear servicio',
+    'Crear  servicio',
   ]);
   name = signal('Nicolas');
   age = 18;

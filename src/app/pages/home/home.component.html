@@ -15,6 +15,15 @@
       <!-- This section should be hidden by default and shown when there are todos -->
       <section class="main">
         <ul class="todo-list">
+          <li *ngFor="let task of tasks()">
+            <div class="view">
+              <input class="toggle" type="checkbox" />
+              <label>{{ task}}</label>
+              <button class="destroy"></button>
+            </div>
+            <input class="edit" value="Buy a unicorn" />
+          </li>
+          <!--
           <li class="completed">
             <div class="view">
               <input class="toggle" type="checkbox" checked />
@@ -39,6 +48,7 @@
             </div>
             <input class="edit" value="Make dishes" />
           </li>
+          -->
         </ul>
       </section>
       <!-- This footer should be hidden by default and shown when there are todos -->
